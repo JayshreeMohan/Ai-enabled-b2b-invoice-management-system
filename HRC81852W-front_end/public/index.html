@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HRC81852W_Jayshree Mohan</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- header of the page consist of logo and heading -->
+    <div class="header">
+        <img src="../src/images/Group 20399.svg" alt="abc" class="abc_logo" width="293" height="52">
+        <img src="../src/images/logo.svg" alt="logo" class="highradius_logo" width="235" height="50">
+        <p>Invoice List</p>
+    </div>
+
+    <!-- body of the page -->
+
+    <!-- <div class="table"> -->
+
+        <div class="nav-table">
+            <!-- navigation bar for the table for add, edit and delete -->
+            <button class=" predict predict-left" id="predict-btn">
+               <p>PREDICT</p>
+            </button>
+
+            <button class=" predict" id="analytic-btn">
+              <p>ANALYTICS VIEW</p>
+            </button>
+
+            <button class=" predict predict-right" id="advance-search-btn">
+              <p>ADVANCE SEARCH</p>
+            </button>
+
+            <button  id="button-refresh">
+                <p>&#8635;</p>
+            </button>
+
+            <div class="search-bar" id="">
+                <input type="text" name="search" id="searchbox" onkeyup="search()"  placeholder="Search Customer Id"></input>
+                
+            </div>
+            
+            <button class="add-invoice" id="add-btn">
+                <p><span></span>Add</p>
+            </button>
+
+            <button class="edit-invoice" id="edit-btn"> 
+              <p><span>Edit</p>
+            </button>
+
+            <button class="delete-invoice" id="delete-btn">
+              <p><span></span>Delete</p>
+            </button>
+
+        </div>
+
+        <!-- Table-Creation -->
+
+        <div class="grid-table">
+            <table class="test-set" >
+                <thead class="thbody">
+                    <tr>
+                        <td><input type="checkbox" class = "table_checkbox" id = "main_checkbox"></td>
+                        <td class="row-value">Sl no</td>
+                        <td class="row-value">Business Code</td>
+                        <td class="row-value">Customer Number</td>
+                        <td class="row-value">Clear Date</td>
+                        <td class="row-value">Business Year</td>
+                        <td class="row-value">Doc Id</td>
+                        <td class="row-value">Posting Date</td>
+                        <td class="row-value">Document Create Date</td>
+                        <td class="row-value">Due In Date</td>
+                        <td class="row-value">Invoice Currency</td>
+                        <td class="row-value">Document Type</td>
+                        <td class="row-value">Posting Id</td>
+                        <td class="row-value">Total Open Amount</td>
+                        <td class="row-value">Baseline Create Date</td>
+                        <td class="row-value">Customer Payment Terms</td>
+                        <td class="row-value">Invoice Id</td>
+                        <td class="row-value">Aging Bucket</td>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+
+                        <!-- mark is the id of tbody checkboxes -->
+                </tbody>
+                
+            </table>
+
+        </div>
+
+        <!-- add modals for Add , Edit & Delete -->
+        <!-- Add -->
+        <div id="modaladd" class="Modaladd">
+            <div class="add-content">
+                <p>Add Invoice</p>
+                
+                <div class="add_body">
+
+                    
+
+                        <input type="text" name="add_business_code" class = "add_menu_fields" id="AddbusinessCode" placeholder="Business Code">
+                        
+                        <input type="text" name="add_customer_number" id="AddcustomerNumber" class = "add_menu_fields" placeholder="Customer Number">
+
+                        <input type="date" name="add_clear_date" id="AddclearDate" class = "add_menu_fields" placeholder="Clear Date">
+                        
+                        <input type="text" name="add_business_year" id="AddbusinessYear" class = "add_menu_fields" placeholder="Business Year">
+
+                        <br>
+
+                        <input type="text" name="add_document_id"  id="AdddocumentId" class = "add_menu_fields" placeholder="Document Id">
+                        
+                        <input type="date" name="add_posting_date" id="AddpostingDate" class = "add_menu_fields" placeholder="Posting date">
+
+                        <input type="date" name="add_document_create_date" id="AdddocumentCreateDate" class = "add_menu_fields" placeholder="Document Create Date">
+                        
+                        <input type="date" name="add_due_date" id="AdddueDate" class = "add_menu_fields" placeholder="Due Date">
+
+                        <br>
+
+                        <input type="text" name="add_invoice_currency" id="AddinvoiceCurrency" class = "add_menu_fields" placeholder="Invoice Currency">
+                        
+                        <input type="text" name="add_document_type" id="AdddocumentType" class = "add_menu_fields" placeholder="Document Type">
+
+                        <input type="text" name="add_posting_id" id="AddpostingId" class = "add_menu_fields" placeholder="Posting Id">
+                        
+                        <input type="text" name="add_total_open_amount" id="AddtotalOpenAmount" class = "add_menu_fields" placeholder="Total Open Amount">
+
+                        <br>
+                        <input type="date" name="add_baseline_create_date" id="AddbaselineCreateDate" class = "add_menu_fields" placeholder="Baseline Create Date">
+                        
+                        <input type="text" name="add_customer_payment_terms" id="AddcustomerPaymentTerms" class = "add_menu_fields" placeholder="Customer Payment Terms">
+
+                        <input type="text" name="add_invoice_id" id="AddinvoiceId" class = "add_menu_fields" placeholder="Invoice Id">
+
+                        <div class="footer">
+                            <button id="add_add_btn">Add</button>
+                            <button id="add_cancel_btn">Cancel</button>
+                        </div>
+
+                  
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Edit -->
+        <div id="modaledit" class="Modaledit">
+
+            <!-- Modal content -->
+            <div class="edit-content">
+                <p>Edit</p>
+                <div class="edit_body">
+                    <input name="sl_no" type="hidden" id="sl">
+                    <input type="text" name="invoice_currency" id="invoice_currency">
+                    <input type="text" name="customer_payment_terms" id="cust_pymt_trms">
+                    <div class="footer-edit">
+                        <button id="edit_btn">Edit</button>
+                        <button id="cancel_btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Delete -->
+        <div id="modaldelete" class="Modaldelete">
+
+            <!-- Modal content -->
+            <div class="delete-content">
+
+                <p id="deletep">Delete Records ?</p>
+
+                <div class="delete_body">
+                    <p>Are you sure you want to delete these record[s] ?</p>
+                </div>
+                <div class="footer-delete">
+                    <button id="canceld" >Cancel</button>
+                    <button id="saved">Delete</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="modaladvancesearch" class="ModalAdvanceSearch">
+
+            <!-- Modal content -->
+            <div class="advance_search_content">
+                <p>Advance Search</p>
+                <div class="advance_search_body">
+                    <input type="text" name="advance_search_document_id" id="AdvanceSearchDoumentId" class="advance_search_menu_fields" placeholder="Document Id">
+                    <input type="text" name="advance_search_invoice_id" id="AdvanceSearchInvoiceId" class="advance_search_menu_fields" placeholder = "Invoice Id">
+                    <br>
+                    <input type="text" name="advance_search_customer_number" id="AdvanceSearchCustomerNumber" class="advance_search_menu_fields" placeholder = "Customer Number">
+                    <input type="text" name="advance_search_business_year" id="AdvanceSearchBusinessYear" class="advance_search_menu_fields" placeholder = "Business Year">
+                    <div class="footer-edit">
+                        <button id="advance_seach_search_btn">Search</button>
+                        <button id="advance_seach_cancel_btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+    <!-- </div> -->
+
+    <div class ="pagination_row">
+        <div class="pagination__btn-1" id="rightBtn"><i class="fas fa-chevron-right arrow_right"  id="arrow_right"></i></div>
+        <div class="pagination__btn-2" id="leftBtn"><i class="fas fa-chevron-left arrow_left" id="arrow_left"></i></div>
+    </div>
+
+    <footer>
+        <p class="footer-text"><span class="footer-span" ><u>Privacy.Policy</u></span> | @2022 HighRadius Corporation. All rights reserved.</p>
+      </footer>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script  src="../src/index.js" ></script>
+</body>
+
+
+</html>
